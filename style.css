@@ -58,6 +58,7 @@ h1 {
 .cell:focus {
     outline: none;
     caret-color: transparent;
+    outline: 3px solid #ffffff;
 }
 
 .cell[contenteditable]:empty:before {

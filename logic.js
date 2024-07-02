@@ -33,8 +33,18 @@ function createGrid() {
         cell.addEventListener('input', handleInput);
         cell.addEventListener('click', toggleColor);
         cell.addEventListener('keydown', handleKeydown);
+        cell.addEventListener('focus', handleFocus);
+        cell.addEventListener('blur', handleBlur);
         grid.appendChild(cell);
     }
+}
+
+function handleFocus(event) {
+    event.target.classList.add('focused');
+}
+
+function handleBlur(event) {
+    event.target.classList.remove('focused');
 }
 
 function focusFirstCell() {
@@ -55,9 +65,21 @@ function handleInput(event) {
 }
 
 function handleKeydown(event) {
-    if (event.key === 'Backspace') {
-        event.target.innerText = '';
-        moveFocus(event.target, -1);
+    switch (event.key) {
+        case 'ArrowLeft':
+            moveFocus(event.target, -1);
+            break;
+        case 'ArrowRight':
+            moveFocus(event.target, 1);
+            break;
+        case 'ArrowUp':
+        case 'ArrowDown':
+            toggleColor(event);
+            break;
+        case 'Backspace':
+            event.target.innerText = '';
+            moveFocus(event.target, -1);
+            break;
     }
     updateSuggestions();
 }
