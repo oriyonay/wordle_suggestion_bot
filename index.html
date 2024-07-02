@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Suggestion Bot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Wordle Suggestion Bot</h1>
+        <div class="wordle-grid">
+            <!-- Generate rows and cells dynamically using JS -->
+        </div>
+        <button id="clear-button">Clear All Text</button>
+        <!-- <button id="ai-button">Get AI Suggestions</button> -->
+        <div class="word-list">
+            <label for="word-list-select">Choose a word list:</label>
+            <select id="word-list-select">
+                <option value="full">Full Wordle List</option>
+                <option value="solution">Wordle Solution List</option>
+            </select>
+            <p id="suggestions-title">Suggestions (top 10, <span id="num-legal">-</span> legal):</p>
+            <ul id="suggestions"></ul>
+        </div>
+        <footer>
+            <p>Made by Ori Yonay with <span style="color: #e25555;">&hearts;</span> in the USA <span>&#127482;&#127480;</span></p>
+        </footer>
+    </div>
+    <script src="logic.js"></script>
+</body>
+</html>
